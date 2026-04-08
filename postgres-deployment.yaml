@@ -26,9 +26,9 @@ spec:
               cpu: "500m"
           env:
             - name: POSTGRESQL_DATABASE
-              value: "issdb"
+              value: "silverdb"
             - name: POSTGRESQL_USER
-              value: "issuser"
+              value: "goldlover"
             - name: POSTGRESQL_PASSWORD
               value: "postgres"
             - name: POSTGRESQL_ADMIN_PASSWORD
