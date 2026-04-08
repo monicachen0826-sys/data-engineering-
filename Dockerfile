@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY iss_poller.py .
 
-CMD ["python", "iss_poller.py"]
+CMD ["python", "silver.py"]

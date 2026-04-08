@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: iss-poller
+  name: silver
 spec:
   schedule: "*/30 * * * *"
   jobTemplate:
@@ -9,8 +9,8 @@ spec:
       template:
         spec:
           containers:
-            - name: iss-poller
-              image: image-registry.openshift-image-registry.svc:5000/data-engineering-workshops-61cf54/iss-poller:latest
+            - name: silver
+              image: image-registry.openshift-image-registry.svc:5000/data-engineering-workshops-066351/silver:latest
               resources:
                 requests:
                   memory: "64Mi"
@@ -24,9 +24,9 @@ spec:
                 - name: DB_PORT
                   value: "5432"
                 - name: DB_NAME
-                  value: "issdb"
+                  value: "silverdb"
                 - name: DB_USER
-                  value: "issuser"
+                  value: "goldlover"
                 - name: DB_PASS
                   value: "postgres"
           restartPolicy: OnFailure
