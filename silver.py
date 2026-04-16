@@ -95,7 +95,7 @@ def store_silver_price(entry):
         password=DB_PASS
     )
 
-    cursor = None
+   cursor = None
     try:
         cursor = conn.cursor()
 
