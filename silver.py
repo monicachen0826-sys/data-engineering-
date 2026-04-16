@@ -95,6 +95,7 @@ def store_silver_price(entry):
         password=DB_PASS
     )
 
+    cursor = None
     try:
         cursor = conn.cursor()
 
@@ -128,8 +129,12 @@ def store_silver_price(entry):
         )
         conn.commit()
         print(f"Stored silver price: {entry.get('nominal')} {entry['price']} at {entry['timestamp']}")
+    except Exception:
+        conn.rollback()
+        raise
     finally:
-        cursor.close()
+        if cursor is not None:
+            cursor.close()
         conn.close()
 
 if __name__ == '__main__':
